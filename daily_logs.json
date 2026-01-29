@@ -1,0 +1,50 @@
+[
+    {
+        "day": "Monday",
+        "activity_log": "Mengikuti briefing mingguan tim. Mengerjakan tugas development yang diberikan. Berkoordinasi dengan tim terkait progres pekerjaan mingguan.",
+        "lesson_learned": "Belajar tentang workflow development dan best practices dalam tim. Memahami pentingnya planning dan koordinasi di awal minggu untuk kelancaran proyek.",
+        "obstacles": "Tidak ada kendala berarti dalam menjalankan tugas karena tim sangat supportive dalam membantu proses adaptasi di awal minggu ini."
+    },
+    {
+        "day": "Tuesday",
+        "activity_log": "Melanjutkan pengerjaan task yang sedang dikerjakan. Review code dari rekan tim. Mengikuti standup meeting harian untuk update progress.",
+        "lesson_learned": "Memahami pentingnya code review untuk meningkatkan kualitas code. Belajar dari feedback yang diberikan senior developer dalam tim.",
+        "obstacles": "Tidak ada kendala yang berarti karena selalu dibimbing dengan baik oleh mentor dan senior developer dalam menyelesaikan tugas."
+    },
+    {
+        "day": "Wednesday",
+        "activity_log": "Mengerjakan fitur baru sesuai requirement. Melakukan testing terhadap fitur yang dikembangkan. Diskusi teknis dengan tim development.",
+        "lesson_learned": "Belajar tentang testing strategy dan pentingnya quality assurance. Memahami flow development dari requirement hingga deployment ke production.",
+        "obstacles": "Tidak ada hambatan signifikan yang dihadapi, semua berjalan sesuai rencana dengan bimbingan dan arahan dari tim senior developer."
+    },
+    {
+        "day": "Thursday",
+        "activity_log": "Mengikuti meeting progress update. Dokumentasi pekerjaan yang sudah selesai. Membantu rekan tim yang membutuhkan bantuan teknis.",
+        "lesson_learned": "Belajar membuat dokumentasi yang baik, jelas, dan terstruktur. Memahami pentingnya knowledge sharing dan kolaborasi dalam tim development.",
+        "obstacles": "Tidak ada kendala berarti yang dihadapi karena komunikasi dan koordinasi dalam tim development berjalan dengan sangat baik."
+    },
+    {
+        "day": "Friday",
+        "activity_log": "Menyelesaikan task minggu ini. Melakukan retrospective pekerjaan. Berkoordinasi untuk planning dan persiapan minggu depan.",
+        "lesson_learned": "Belajar evaluasi diri dan improvement secara berkelanjutan. Memahami pentingnya refleksi untuk pengembangan skill dan karir profesional.",
+        "obstacles": "Tidak ada hambatan berarti yang dihadapi, tim selalu memberikan dukungan penuh dan arahan dalam setiap kegiatan yang dilakukan."
+    },
+    {
+        "day": "Saturday",
+        "activity_log": "Melakukan review materi yang sudah dipelajari selama seminggu. Mengerjakan tugas tambahan jika ada. Self-learning terkait teknologi.",
+        "lesson_learned": "Belajar mandiri tentang teknologi dan tools yang digunakan di tempat magang. Memperdalam pemahaman konsep yang sudah dipelajari selama bekerja.",
+        "obstacles": "Tidak ada kendala yang dihadapi, waktu akhir pekan dimanfaatkan dengan baik untuk belajar mandiri dan meningkatkan skill teknis."
+    },
+    {
+        "day": "Sunday",
+        "activity_log": "Mempersiapkan diri untuk minggu depan. Review planning dan target yang akan dicapai. Istirahat yang cukup untuk menjaga produktivitas.",
+        "lesson_learned": "Memahami pentingnya work-life balance dan persiapan yang matang untuk memulai minggu baru dengan semangat dan produktivitas tinggi.",
+        "obstacles": "Tidak ada hambatan yang dihadapi, hari Minggu digunakan untuk recharge energi dan mempersiapkan diri menghadapi minggu berikutnya."
+    },
+    {
+        "day": "Fallback",
+        "activity_log": "Mengikuti kegiatan dan budaya perusahaan. Mengerjakan jobdesk yang diberikan. Bersosialisasi dengan karyawan lain di lingkungan kerja.",
+        "lesson_learned": "Belajar membuat dokumentasi dan Work Instruction (WI) untuk proyek aplikasi yang sedang dikembangkan oleh tim development.",
+        "obstacles": "Tidak ada kendala yang berarti karena selalu dibimbing dan diayomi dengan baik oleh para senior di tim pengembangan proyek ini."
+    }
+]
