@@ -46,6 +46,10 @@ func main() {
 	log.Printf("✅ Login verified as: %s", userName)
 	client.Close()
 
+	// Run attendance check on startup
+	log.Println("📋 Checking attendance for today...")
+	runAttendance(cfg)
+
 	// Create scheduler with cron from config
 	scheduler := schedule.NewScheduler(cfg.CronSchedule)
 
@@ -92,15 +96,17 @@ func runAttendance(cfg *config.Config) {
 
 	// Try to use cached cookies first
 	var apiClient *api.Client
+	var cachedUser *api.User
 	if cookieManager.HasCookies() {
 		log.Println("🔄 Trying with cached cookies...")
 		apiClient = api.NewClient(cookieManager.Get())
 
 		// Test if cookies are still valid by calling GetMe
-		_, err := apiClient.GetMe()
-		if err != nil {
+		cachedUser, err = apiClient.GetMe()
+		if err != nil || cachedUser.ID == "" {
 			log.Println("⚠️  Cached cookies expired, re-logging in...")
 			apiClient = nil
+			cachedUser = nil
 		} else {
 			log.Println("✅ Cached cookies still valid")
 		}
@@ -138,12 +144,17 @@ func runAttendance(cfg *config.Config) {
 		apiClient = api.NewClient(cookies)
 	}
 
-	// Get user profile
-	user, err := apiClient.GetMe()
-	if err != nil {
-		log.Printf("GetMe error: %v", err)
-		cookieManager.Clear() // Clear invalid cookies
-		return
+	// Get user profile (reuse cached user if available)
+	var user *api.User
+	if cachedUser != nil {
+		user = cachedUser
+	} else {
+		user, err = apiClient.GetMe()
+		if err != nil {
+			log.Printf("GetMe error: %v", err)
+			cookieManager.Clear() // Clear invalid cookies
+			return
+		}
 	}
 	log.Printf("User: %s (%s)", user.Name, user.ID)
 
