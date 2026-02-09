@@ -2,6 +2,7 @@ package schedule
 
 import (
 	"log"
+	"time"
 
 	"github.com/robfig/cron/v3"
 )
@@ -49,4 +50,18 @@ func (s *Scheduler) GetNextRun() string {
 		return entries[0].Next.Format("2006-01-02 15:04:05")
 	}
 	return "No scheduled job"
+}
+
+// ScheduleOnce schedules a one-time job to run after the specified duration
+func (s *Scheduler) ScheduleOnce(duration time.Duration, job func()) {
+	retryTime := time.Now().Add(duration)
+	log.Printf("🔄 Rescheduling job for: %s", retryTime.Format("2006-01-02 15:04:05"))
+
+	go func() {
+		time.Sleep(duration)
+		log.Println("Running rescheduled job...")
+		job()
+		log.Println("Rescheduled job completed")
+		log.Printf("Next scheduled run: %s", s.GetNextRun())
+	}()
 }

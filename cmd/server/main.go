@@ -5,12 +5,15 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 
 	"maganghub-autopresence/internal/api"
 	"maganghub-autopresence/internal/browser"
 	"maganghub-autopresence/internal/config"
 	"maganghub-autopresence/internal/cookie_manager"
 	"maganghub-autopresence/internal/schedule"
+
+	"github.com/playwright-community/playwright-go"
 )
 
 func main() {
@@ -51,7 +54,7 @@ func main() {
 
 	// Define the attendance job
 	attendanceJob := func() {
-		runAttendance(cfg)
+		runAttendance(cfg, scheduler)
 	}
 
 	// Start the scheduler
@@ -73,7 +76,7 @@ func main() {
 // Global cookie manager
 var cookieManager = cookie_manager.NewCookieManager("cookies.json")
 
-func runAttendance(cfg *config.Config) {
+func runAttendance(cfg *config.Config, scheduler *schedule.Scheduler) {
 	// Load daily logs from JSON
 	logs, err := schedule.LoadDailyLogs("daily_logs.json")
 	if err != nil {
@@ -106,27 +109,61 @@ func runAttendance(cfg *config.Config) {
 		}
 	}
 
-	// If no valid cookies, login fresh
+	// If no valid cookies, login fresh with retry logic
 	if apiClient == nil {
-		log.Println("🔐 Logging in...")
-		client, err := browser.NewBrowserClient(cfg.Headless)
-		if err != nil {
-			log.Printf("Browser error: %v", err)
-			return
-		}
+		const maxRetries = 3
+		var cookies []playwright.Cookie
+		var loginErr error
 
-		userName, err := client.Login(cfg.MaganghubConfig.Username, cfg.MaganghubConfig.Password)
-		if err != nil {
+		for attempt := 1; attempt <= maxRetries; attempt++ {
+			log.Printf("🔐 Logging in... (attempt %d/%d)", attempt, maxRetries)
+			client, err := browser.NewBrowserClient(cfg.Headless)
+			if err != nil {
+				log.Printf("Browser error: %v", err)
+				loginErr = err
+				if attempt < maxRetries {
+					log.Printf("⏳ Waiting 5 seconds before retry...")
+					time.Sleep(5 * time.Second)
+				}
+				continue
+			}
+
+			userName, err := client.Login(cfg.MaganghubConfig.Username, cfg.MaganghubConfig.Password)
+			if err != nil {
+				client.Close()
+				log.Printf("Login error: %v", err)
+				loginErr = err
+				if attempt < maxRetries {
+					log.Printf("⏳ Waiting 5 seconds before retry...")
+					time.Sleep(5 * time.Second)
+				}
+				continue
+			}
+			log.Printf("✅ Logged in as: %s", userName)
+
+			cookies, err = client.GetCookies()
 			client.Close()
-			log.Printf("Login error: %v", err)
-			return
-		}
-		log.Printf("✅ Logged in as: %s", userName)
+			if err != nil {
+				log.Printf("Cookie error: %v", err)
+				loginErr = err
+				if attempt < maxRetries {
+					log.Printf("⏳ Waiting 5 seconds before retry...")
+					time.Sleep(5 * time.Second)
+				}
+				continue
+			}
 
-		cookies, err := client.GetCookies()
-		client.Close()
-		if err != nil {
-			log.Printf("Cookie error: %v", err)
+			// Success - break out of retry loop
+			loginErr = nil
+			break
+		}
+
+		if loginErr != nil {
+			log.Printf("❌ Login failed after %d attempts: %v", maxRetries, loginErr)
+			// Schedule retry in 3 hours
+			scheduler.ScheduleOnce(3*time.Hour, func() {
+				runAttendance(cfg, scheduler)
+			})
 			return
 		}
 
