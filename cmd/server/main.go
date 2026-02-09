@@ -51,7 +51,7 @@ func main() {
 
 	// Run attendance check on startup
 	log.Println("📋 Checking attendance for today...")
-	runAttendance(cfg)
+	runAttendance(cfg, nil)
 
 	// Create scheduler with cron from config
 	scheduler := schedule.NewScheduler(cfg.CronSchedule)
@@ -166,10 +166,12 @@ func runAttendance(cfg *config.Config, scheduler *schedule.Scheduler) {
 
 		if loginErr != nil {
 			log.Printf("❌ Login failed after %d attempts: %v", maxRetries, loginErr)
-			// Schedule retry in 3 hours
-			scheduler.ScheduleOnce(3*time.Hour, func() {
-				runAttendance(cfg, scheduler)
-			})
+			if scheduler != nil {
+				// Schedule retry in 3 hours when scheduler is available.
+				scheduler.ScheduleOnce(3*time.Hour, func() {
+					runAttendance(cfg, scheduler)
+				})
+			}
 			return
 		}
 
@@ -220,3 +222,4 @@ func runAttendance(cfg *config.Config, scheduler *schedule.Scheduler) {
 
 	log.Printf("Attendance submitted: %s", response)
 }
+
