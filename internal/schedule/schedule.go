@@ -27,6 +27,7 @@ func (s *Scheduler) Start(job func()) error {
 		log.Println("Running scheduled job...")
 		job()
 		log.Println("Scheduled job completed")
+		log.Printf("Next scheduled run: %s", s.GetNextRun())
 	})
 	if err != nil {
 		return err
