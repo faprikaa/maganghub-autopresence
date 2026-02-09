@@ -1,50 +1,116 @@
-[
-    {
-        "day": "Monday",
-        "activity_log": "Mengikuti briefing mingguan tim. Mengerjakan tugas development yang diberikan. Berkoordinasi dengan tim terkait progres pekerjaan mingguan.",
-        "lesson_learned": "Belajar tentang workflow development dan best practices dalam tim. Memahami pentingnya planning dan koordinasi di awal minggu untuk kelancaran proyek.",
-        "obstacles": "Tidak ada kendala berarti dalam menjalankan tugas karena tim sangat supportive dalam membantu proses adaptasi di awal minggu ini."
-    },
-    {
-        "day": "Tuesday",
-        "activity_log": "Melanjutkan pengerjaan task yang sedang dikerjakan. Review code dari rekan tim. Mengikuti standup meeting harian untuk update progress.",
-        "lesson_learned": "Memahami pentingnya code review untuk meningkatkan kualitas code. Belajar dari feedback yang diberikan senior developer dalam tim.",
-        "obstacles": "Tidak ada kendala yang berarti karena selalu dibimbing dengan baik oleh mentor dan senior developer dalam menyelesaikan tugas."
-    },
-    {
-        "day": "Wednesday",
-        "activity_log": "Mengerjakan fitur baru sesuai requirement. Melakukan testing terhadap fitur yang dikembangkan. Diskusi teknis dengan tim development.",
-        "lesson_learned": "Belajar tentang testing strategy dan pentingnya quality assurance. Memahami flow development dari requirement hingga deployment ke production.",
-        "obstacles": "Tidak ada hambatan signifikan yang dihadapi, semua berjalan sesuai rencana dengan bimbingan dan arahan dari tim senior developer."
-    },
-    {
-        "day": "Thursday",
-        "activity_log": "Mengikuti meeting progress update. Dokumentasi pekerjaan yang sudah selesai. Membantu rekan tim yang membutuhkan bantuan teknis.",
-        "lesson_learned": "Belajar membuat dokumentasi yang baik, jelas, dan terstruktur. Memahami pentingnya knowledge sharing dan kolaborasi dalam tim development.",
-        "obstacles": "Tidak ada kendala berarti yang dihadapi karena komunikasi dan koordinasi dalam tim development berjalan dengan sangat baik."
-    },
-    {
-        "day": "Friday",
-        "activity_log": "Menyelesaikan task minggu ini. Melakukan retrospective pekerjaan. Berkoordinasi untuk planning dan persiapan minggu depan.",
-        "lesson_learned": "Belajar evaluasi diri dan improvement secara berkelanjutan. Memahami pentingnya refleksi untuk pengembangan skill dan karir profesional.",
-        "obstacles": "Tidak ada hambatan berarti yang dihadapi, tim selalu memberikan dukungan penuh dan arahan dalam setiap kegiatan yang dilakukan."
-    },
-    {
-        "day": "Saturday",
-        "activity_log": "Melakukan review materi yang sudah dipelajari selama seminggu. Mengerjakan tugas tambahan jika ada. Self-learning terkait teknologi.",
-        "lesson_learned": "Belajar mandiri tentang teknologi dan tools yang digunakan di tempat magang. Memperdalam pemahaman konsep yang sudah dipelajari selama bekerja.",
-        "obstacles": "Tidak ada kendala yang dihadapi, waktu akhir pekan dimanfaatkan dengan baik untuk belajar mandiri dan meningkatkan skill teknis."
-    },
-    {
-        "day": "Sunday",
-        "activity_log": "Mempersiapkan diri untuk minggu depan. Review planning dan target yang akan dicapai. Istirahat yang cukup untuk menjaga produktivitas.",
-        "lesson_learned": "Memahami pentingnya work-life balance dan persiapan yang matang untuk memulai minggu baru dengan semangat dan produktivitas tinggi.",
-        "obstacles": "Tidak ada hambatan yang dihadapi, hari Minggu digunakan untuk recharge energi dan mempersiapkan diri menghadapi minggu berikutnya."
-    },
-    {
-        "day": "Fallback",
-        "activity_log": "Mengikuti kegiatan dan budaya perusahaan. Mengerjakan jobdesk yang diberikan. Bersosialisasi dengan karyawan lain di lingkungan kerja.",
-        "lesson_learned": "Belajar membuat dokumentasi dan Work Instruction (WI) untuk proyek aplikasi yang sedang dikembangkan oleh tim development.",
-        "obstacles": "Tidak ada kendala yang berarti karena selalu dibimbing dan diayomi dengan baik oleh para senior di tim pengembangan proyek ini."
+{
+    "days": {
+        "Monday": {
+            "activity_log": [
+                "Mengikuti briefing mingguan bersama tim untuk menyepakati prioritas sprint. Setelah itu melanjutkan implementasi task backend dan update progress pekerjaan di channel harian.",
+                "Memulai minggu dengan sinkronisasi backlog bersama mentor, lalu mengerjakan perbaikan bug prioritas tinggi dan mendokumentasikan hasil perubahan agar mudah direview oleh tim."
+            ],
+            "lesson_learned": [
+                "Memahami bahwa perencanaan di awal minggu sangat menentukan kelancaran eksekusi. Saya belajar memecah pekerjaan besar menjadi tugas kecil agar proses monitoring lebih jelas.",
+                "Belajar pentingnya komunikasi yang ringkas namun konsisten saat standup. Update yang terstruktur membantu tim melihat risiko lebih cepat dan meminimalkan miskomunikasi."
+            ],
+            "obstacles": [
+                "Tidak ada kendala signifikan pada proses pengerjaan. Hambatan kecil terkait klarifikasi requirement bisa diselesaikan cepat setelah diskusi singkat dengan mentor.",
+                "Secara umum pekerjaan berjalan lancar. Ada beberapa konteks teknis yang awalnya belum familiar, namun bisa diatasi dengan membaca dokumentasi internal dan arahan rekan tim."
+            ]
+        },
+        "Tuesday": {
+            "activity_log": [
+                "Melanjutkan pengembangan fitur sesuai acceptance criteria, kemudian melakukan code review terhadap pull request rekan tim dan memberikan catatan perbaikan yang relevan.",
+                "Mengikuti standup harian, meneruskan task integrasi API, lalu melakukan pengujian manual pada flow utama agar perubahan yang dibuat tetap stabil sebelum disubmit."
+            ],
+            "lesson_learned": [
+                "Belajar bahwa code review bukan hanya mencari kesalahan, tetapi memastikan konsistensi standar coding dan menjaga maintainability agar tim lebih mudah melanjutkan pekerjaan.",
+                "Memahami manfaat validasi lebih awal pada sisi input dan response handling. Pendekatan ini mengurangi error berulang dan mempercepat proses debugging saat integrasi."
+            ],
+            "obstacles": [
+                "Tidak ada hambatan besar. Tantangan kecil muncul saat menyesuaikan struktur data dengan endpoint, namun dapat diselesaikan setelah verifikasi ulang kontrak API.",
+                "Pekerjaan berjalan baik dengan dukungan tim. Beberapa ketidakjelasan minor pada naming data sempat muncul, tetapi langsung teratasi setelah sinkronisasi singkat."
+            ]
+        },
+        "Wednesday": {
+            "activity_log": [
+                "Mengerjakan fitur baru berdasarkan requirement terbaru, melakukan unit testing pada fungsi inti, dan melaporkan hasil pengujian untuk memastikan perilaku aplikasi sesuai ekspektasi.",
+                "Melanjutkan implementasi modul yang sedang dikembangkan, berdiskusi teknis dengan tim terkait edge case, lalu menyempurnakan validasi agar alur input lebih aman."
+            ],
+            "lesson_learned": [
+                "Belajar bahwa testing yang baik perlu mencakup skenario normal dan skenario gagal. Pendekatan ini membantu mengurangi regresi ketika ada perubahan pada logika bisnis.",
+                "Memahami alur kerja dari requirement hingga implementasi harus selalu disertai verifikasi hasil. Dokumentasi keputusan teknis mempermudah evaluasi saat ada revisi berikutnya."
+            ],
+            "obstacles": [
+                "Tidak ada kendala yang berdampak besar terhadap timeline. Penyesuaian kecil pada detail requirement dapat ditangani setelah konfirmasi langsung dengan pihak terkait.",
+                "Secara keseluruhan proses berjalan sesuai rencana. Hambatan minor pada data uji sempat terjadi, namun cepat teratasi setelah memperbarui skenario testing."
+            ]
+        },
+        "Thursday": {
+            "activity_log": [
+                "Mengikuti meeting update progres mingguan, menyiapkan dokumentasi untuk fitur yang sudah selesai, serta membantu rekan tim menelusuri issue teknis pada modul terkait.",
+                "Fokus pada perapihan hasil pekerjaan, memperbarui catatan implementasi, dan berkolaborasi dengan tim untuk memastikan seluruh perubahan mudah dipahami saat handover."
+            ],
+            "lesson_learned": [
+                "Belajar bahwa dokumentasi yang jelas mempercepat proses onboarding dan review. Struktur penjelasan yang rapi membuat konteks teknis tidak hilang saat pekerjaan berpindah tangan.",
+                "Memahami bahwa kolaborasi efektif membutuhkan transparansi progres. Informasi yang dibagikan tepat waktu membantu tim mengambil keputusan teknis dengan lebih cepat."
+            ],
+            "obstacles": [
+                "Tidak ada hambatan signifikan dalam koordinasi. Komunikasi antar anggota tim berjalan baik sehingga kebutuhan klarifikasi dapat diselesaikan tanpa menunda pekerjaan utama.",
+                "Pekerjaan berlangsung lancar. Ada penyesuaian kecil pada format dokumentasi, namun dapat disamakan dengan cepat mengikuti standar yang berlaku di tim."
+            ]
+        },
+        "Friday": {
+            "activity_log": [
+                "Menyelesaikan task yang ditargetkan minggu ini, melakukan pengecekan akhir pada perubahan yang sudah masuk, lalu menyusun catatan untuk bahan evaluasi sprint berikutnya.",
+                "Mengikuti sesi retrospective tim, merangkum progres dan hambatan selama seminggu, kemudian menyiapkan rencana kerja awal agar eksekusi minggu depan lebih terarah."
+            ],
+            "lesson_learned": [
+                "Belajar bahwa evaluasi rutin membantu melihat pola kesalahan dan peluang perbaikan. Dengan refleksi terstruktur, kualitas pekerjaan bisa meningkat secara konsisten dari minggu ke minggu.",
+                "Memahami pentingnya menutup pekerjaan dengan dokumentasi hasil dan catatan tindak lanjut. Langkah ini memudahkan tim menjaga momentum pada pekan berikutnya."
+            ],
+            "obstacles": [
+                "Tidak ada hambatan besar pada akhir minggu. Beberapa item kecil yang belum final sudah dicatat sebagai tindak lanjut agar tidak mengganggu prioritas utama.",
+                "Proses penyelesaian tugas berjalan baik dengan dukungan tim. Kendala minor terkait sinkronisasi jadwal diskusi dapat diatasi dengan penyesuaian waktu yang fleksibel."
+            ]
+        },
+        "Saturday": {
+            "activity_log": [
+                "Melakukan review materi teknis yang dipelajari sepanjang minggu, merapikan catatan pribadi, dan melanjutkan eksplorasi mandiri pada tools yang digunakan dalam proyek.",
+                "Menggunakan waktu akhir pekan untuk memperdalam topik yang belum dikuasai sepenuhnya, termasuk mencoba ulang implementasi sederhana agar pemahaman lebih kuat."
+            ],
+            "lesson_learned": [
+                "Belajar bahwa pengulangan praktik secara mandiri sangat membantu mempercepat pemahaman konsep. Dokumentasi pribadi juga memudahkan proses recall saat mengerjakan tugas baru.",
+                "Memahami pentingnya membangun kebiasaan belajar terstruktur di luar jam utama kerja. Pendekatan ini membuat adaptasi terhadap teknologi baru terasa lebih ringan."
+            ],
+            "obstacles": [
+                "Tidak ada kendala berarti selama sesi belajar mandiri. Tantangan kecil pada topik yang baru dipelajari dapat diatasi dengan membaca referensi tambahan yang relevan.",
+                "Secara umum tidak ada hambatan signifikan. Proses belajar berjalan lancar dengan ritme yang fleksibel sehingga materi dapat dipahami secara bertahap."
+            ]
+        },
+        "Sunday": {
+            "activity_log": [
+                "Mempersiapkan rencana kerja untuk minggu depan, meninjau kembali prioritas yang belum selesai, dan memastikan catatan tugas sudah tersusun agar eksekusi lebih efisien.",
+                "Melakukan review target mingguan serta menyusun daftar fokus utama, kemudian mengatur waktu istirahat dengan baik agar performa tetap stabil pada awal pekan."
+            ],
+            "lesson_learned": [
+                "Memahami bahwa persiapan sebelum minggu kerja dimulai memberi dampak besar pada fokus dan produktivitas. Perencanaan sederhana membantu mengurangi beban saat eksekusi.",
+                "Belajar menjaga keseimbangan antara pemulihan energi dan persiapan teknis. Kombinasi keduanya membuat proses kerja lebih konsisten serta minim kelelahan."
+            ],
+            "obstacles": [
+                "Tidak ada hambatan yang memengaruhi persiapan mingguan. Seluruh rencana dapat disusun dengan baik sehingga transisi ke hari kerja berikutnya lebih siap.",
+                "Tidak ada kendala signifikan. Hari digunakan untuk pemulihan dan penataan prioritas sehingga beban kerja awal minggu dapat ditangani dengan lebih terarah."
+            ]
+        },
+        "Fallback": {
+            "activity_log": [
+                "Mengikuti aktivitas kerja sesuai arahan tim, menjalankan jobdesk harian yang diberikan, dan menjaga komunikasi aktif untuk memastikan progres tetap terpantau dengan baik.",
+                "Menjalankan tugas operasional maupun pengembangan sesuai kebutuhan hari itu, sambil berkoordinasi dengan tim untuk memastikan hasil kerja sesuai target yang ditetapkan."
+            ],
+            "lesson_learned": [
+                "Belajar menyusun dokumentasi kerja yang ringkas namun jelas, termasuk cara mencatat keputusan teknis agar mudah ditelusuri kembali saat diperlukan.",
+                "Memahami pentingnya adaptif terhadap dinamika tugas harian. Sikap proaktif dalam bertanya dan mengonfirmasi kebutuhan membantu menjaga kualitas output."
+            ],
+            "obstacles": [
+                "Tidak ada kendala besar dalam pelaksanaan tugas. Hambatan minor dapat ditangani melalui koordinasi cepat dengan mentor dan rekan tim yang terkait.",
+                "Secara keseluruhan tidak ada hambatan signifikan. Dukungan tim membantu proses adaptasi berjalan baik sehingga pekerjaan tetap selesai sesuai rencana."
+            ]
+        }
     }
-]
+}
